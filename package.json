@@ -1,6 +1,6 @@
 {
-  "name": "VocabularyBuilder",
-  "version": "1.0.0",
+  "name": "Kindle2Anki",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {},
@@ -8,8 +8,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "anki-apkg": "^0.0.1",
+    "better-sqlite3": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
-    "sqlite3": "^3.1.13",
     "yargs": "^11.0.0"
   }
 }
