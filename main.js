@@ -1,11 +1,11 @@
 /*
-  node Kindle2Anki.js --vocab=vocab.db --dict=dict.rawml
+  node Kindle2Anki.js --vocab vocab.db --dict dict.rawml
 */
 
 const path = require('path')
 const yargs = require('yargs')
-const { APKG } = require('anki-apkg')
 const { createDictDatabase } = require('./createDictDatabase')
+const { createAPKG } = require('./createAPKG')
 
 let args = yargs
   .option('dict', {
@@ -18,21 +18,14 @@ let args = yargs
   })
   .demandOption(['vocab']).argv
 
-createDictDatabase({
-  input: args.dict,
-  output: path.join(__dirname, 'dict.db')
+const DICT_DB = path.join(__dirname, 'dict.db')
+
+// TODO: file exist
+// createDictDatabase({
+//   input: args.dict,
+//   output: DICT_DB
+// })
+createAPKG({
+  vocab: args.vocab,
+  dict: DICT_DB
 })
-// const sqlite3 = require('sqlite3').verbose()
-// const db = new sqlite3.Database(args.vocab, err => {
-//   if (err) {
-//     return console.log('OPEN vocab.db ERROR:', err.message)
-//   }
-// })
-// db.all('SELECT title from BOOK_INFO', (err, rows) => {
-//   if (err) {
-//     return console.error('QUERY vocab.db ERROR', err.message)
-//   }
-//   rows.forEach(row => {
-//     console.log(row.title)
-//   })
-// })
