@@ -1,6 +1,7 @@
 const readline = require('readline')
-const { APKG } = require('anki-apkg')
 const Database = require('better-sqlite3')
+const ProgressBar = require('progress')
+const { APKG } = require('anki-apkg')
 
 const query = (dictdb, word) => {
   const entries = dictdb
@@ -60,18 +61,24 @@ const createAPKG = ({ vocab, dict }) => {
         }
       })
 
-      // TODO: progress
+      const progress = new ProgressBar(':bar :percent', {
+        total: lookups.length
+      })
+
       lookups.forEach(lookup => {
-        const { stem, word, usage, timestamp } = lookup
+        let { stem, word, usage, timestamp } = lookup
         let meaning = query(dictdb, stem)
-        console.log(stem, word, meaning)
+        usage = usage.replace(word, `<strong>${word}</strong>`)
         apkg.addCard({
           timestamp,
           content: [stem, meaning, usage]
         })
+        progress.tick()
       })
 
       apkg.save(__dirname)
+      rl.close()
+      console.log(`${title}.apkg created.`)
     }
   )
 }

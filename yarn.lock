@@ -6,13 +6,14 @@
   version "9.4.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.6.tgz#d8176d864ee48753d053783e4e463aec86b8d82e"
 
-anki-apkg@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/anki-apkg/-/anki-apkg-0.0.1.tgz#ec2c7b9fc7d6bea5f365bae2c1716efe0ade90e9"
+anki-apkg@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/anki-apkg/-/anki-apkg-0.0.3.tgz#3e56f3b89b58a280d671e1dbf202e46a95eda80b"
   dependencies:
     "@types/node" "^9.4.6"
     archiver "^2.1.1"
     better-sqlite3 "^4.1.0"
+    rimraf "^2.6.2"
     sha1 "^1.1.1"
 
 ansi-regex@^2.0.0:
@@ -253,7 +254,7 @@ get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
 
-glob@^7.0.0:
+glob@^7.0.0, glob@^7.0.5:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -450,6 +451,10 @@ process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
 
+progress@1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
+
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
@@ -477,6 +482,12 @@ require-directory@^2.1.1:
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
+
+rimraf@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
+  dependencies:
+    glob "^7.0.5"
 
 safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"

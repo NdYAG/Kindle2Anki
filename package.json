@@ -8,9 +8,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "anki-apkg": "^0.0.1",
+    "anki-apkg": "^0.0.3",
     "better-sqlite3": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
+    "progress": "1.1.8",
     "yargs": "^11.0.0"
   }
 }
