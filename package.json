@@ -2,7 +2,7 @@
   "name": "Kindle2Anki",
   "version": "0.0.1",
   "description": "",
-  "main": "main.js",
+  "main": "Kindle2Anki.js",
   "scripts": {},
   "keywords": [],
   "author": "",
