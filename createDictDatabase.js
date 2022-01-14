@@ -13,23 +13,29 @@ function createDictDatabase({ input: rawml, output: database }) {
 
     const src = createReadStream(rawml)
     src
-      .pipe(new Separator({ separator: '<hr/>' }))
+      .pipe(new Separator({ separator: '<h2>' }))
       .on('data', chunk => {
         let html = chunk.toString().trim()
         let $ = cheerio.load(html)
-        let $word = $('word')
+        
+        //let $word = $('word')
+        
+        let $word = html.substring(0, html.indexOf("</h2>") - 1)
+        html = html.substring(html.indexOf("</h2>")+6)
         if (!$word.length) {
           return
         }
 
-        let words = $word
-          .map((_, word) => {
-            word = $(word)
-            word.find('sup').remove()
-            return word.text().replace(/,?\s*$/, '')
-          })
-          .get()
+        //let words = $word
+        //  .map((_, word) => {
+        //    word = $(word)
+        //    word.find('sup').remove()
+        //    return word.text().replace(/,?\s*$/, '')
+        //  })
+        //  .get()
 
+        let words = new Array();
+        words.push($word);
         const sql = `INSERT INTO dictionary (word, meaning) VALUES (
           '${doubleQuote(words.join('|'))}',
           '${doubleQuote(html)}')`
