@@ -51,11 +51,16 @@ const createAPKG = ({ vocab, dict }) => {
         card: {
           fields: ['word', 'meaning', 'usage'],
           template: {
-            question: '{{word}}',
+            question: '<h2>{{word}}</h2><p><i>{{usage}}</i></p>',
             answer: `
-              <div class="word">{{word}}</div>
+              <div class="word"><h2>{{word}}</h2></div>
               <div class="meaning">{{meaning}}</div>
               <div class="usage">{{usage}}</div>
+              <style>
+              .meaning{
+                text-align:left;
+              }
+              </style>
             `
           }
         }
