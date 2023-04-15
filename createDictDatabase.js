@@ -11,6 +11,8 @@ function createDictDatabase({ input: rawml, output: database }) {
     const db = new Database(database)
     db.exec('CREATE TABLE dictionary(word text, meaning text)')
 
+    //I will introduce some changes there
+
     const src = createReadStream(rawml)
     src
       .pipe(new Separator({ separator: '<h2>' }))
